@@ -1,0 +1,35 @@
+SHELL            = /bin/sh
+
+GIT_MODULE_DIR   = $(PWD)/modules
+MAKE_INCLUDE_DIR = $(PWD)/rules
+
+CMAKE_COMMAND = $(shell command -v cmake)
+GIT_COMMAND   = $(shell command -v git)
+
+JOBS          = $(shell nproc)
+
+default:
+	$(GIT_COMMAND) submodule update --remote
+
+modules:
+	git init -q
+	-@$(GIT_COMMAND) submodule add https://github.com/assimp/assimp.git modules/assimp 2>/dev/null
+	-@$(GIT_COMMAND) submodule add https://github.com/freetype/freetype.git modules/freetype 2>/dev/null
+	-@$(GIT_COMMAND) submodule add https://github.com/Dav1dde/glad.git modules/glad 2>/dev/null
+	-@$(GIT_COMMAND) submodule add https://github.com/glfw/glfw.git modules/glfw 2>/dev/null
+	-@$(GIT_COMMAND) submodule add https://github.com/g-truc/glm.git modules/glm 2>/dev/null
+	-@$(GIT_COMMAND) submodule add https://github.com/nothings/stb.git modules/stb 2>/dev/null
+.PHONY: modules
+
+prepare: prepare/assimp prepare/freetype prepare/glad prepare/glfw prepare/glm prepare/stb
+build: build/assimp build/freetype build/glad build/glfw build/glm build/stb
+install: install/assimp install/freetype install/glad install/glfw install/glm install/stb
+uninstall: uninstall/assimp uninstall/freetype uninstall/glad uninstall/glfw uninstall/glm uninstall/stb
+clean: clean/assimp clean/freetype clean/glad clean/glfw clean/glm clean/stb
+
+include $(MAKE_INCLUDE_DIR)/assimp.mk
+include $(MAKE_INCLUDE_DIR)/freetype.mk
+include $(MAKE_INCLUDE_DIR)/glad.mk
+include $(MAKE_INCLUDE_DIR)/glfw.mk
+include $(MAKE_INCLUDE_DIR)/glm.mk
+include $(MAKE_INCLUDE_DIR)/stb.mk

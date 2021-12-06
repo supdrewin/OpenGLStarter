@@ -1,0 +1,18 @@
+{
+    "clangd.fallbackFlags": [
+        "-flto=thin",
+        "-finline-functions",
+        "-fuse-ld=lld",
+        "-I${workspaceFolder}/include",
+        "-pedantic-errors",
+        "-std=c++2a",
+        "-stdlib=libc++",
+        "-Wall",
+        "-Weffc++",
+        "-Wextra",
+        "-Wsign-conversion"
+    ],
+    "code-runner.executorMap": {
+        "cpp": "project=$dirWithoutTrailingSlash && mkdir -p $workspaceRoot/build && clang++ -std=c++2a -stdlib=libc++ -fuse-ld=lld -flto=thin -finline-functions -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors -pipe -glldb -O2 -o $workspaceRoot/bin/${project##*/}.app $dirWithoutTrailingSlash/*.cpp -I$workspaceRoot/include -L$workspaceRoot/lib -lassimp -ldl -lfreetype -lglad -lglfw3 -lpthread -lzlibstatic"
+    }
+}
