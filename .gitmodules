@@ -1,0 +1,9 @@
+[submodule "modules/assimp"]
+	path = modules/assimp
+	url = https://github.com/assimp/assimp.git
+[submodule "modules/freetype"]
+	path = modules/freetype
+	url = https://github.com/freetype/freetype.git
+[submodule "modules/glad"]
+	path = modules/glad
+	url = https://github.com/Dav1dde/glad.git

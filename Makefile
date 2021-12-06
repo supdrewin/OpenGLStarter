@@ -13,12 +13,12 @@ default:
 
 modules:
 	git init -q
-	-@$(GIT_COMMAND) submodule add https://github.com/assimp/assimp.git modules/assimp 2>/dev/null
-	-@$(GIT_COMMAND) submodule add https://github.com/freetype/freetype.git modules/freetype 2>/dev/null
-	-@$(GIT_COMMAND) submodule add https://github.com/Dav1dde/glad.git modules/glad 2>/dev/null
-	-@$(GIT_COMMAND) submodule add https://github.com/glfw/glfw.git modules/glfw 2>/dev/null
-	-@$(GIT_COMMAND) submodule add https://github.com/g-truc/glm.git modules/glm 2>/dev/null
-	-@$(GIT_COMMAND) submodule add https://github.com/nothings/stb.git modules/stb 2>/dev/null
+	-$(GIT_COMMAND) submodule add https://github.com/assimp/assimp.git modules/assimp
+	-$(GIT_COMMAND) submodule add https://github.com/freetype/freetype.git modules/freetype
+	-$(GIT_COMMAND) submodule add https://github.com/Dav1dde/glad.git modules/glad
+	-$(GIT_COMMAND) submodule add https://github.com/glfw/glfw.git modules/glfw
+	-$(GIT_COMMAND) submodule add https://github.com/g-truc/glm.git modules/glm
+	-$(GIT_COMMAND) submodule add https://github.com/nothings/stb.git modules/stb
 .PHONY: modules
 
 prepare: prepare/assimp prepare/freetype prepare/glad prepare/glfw prepare/glm prepare/stb
