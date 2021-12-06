@@ -7,3 +7,12 @@
 [submodule "modules/glad"]
 	path = modules/glad
 	url = https://github.com/Dav1dde/glad.git
+[submodule "modules/glfw"]
+	path = modules/glfw
+	url = https://github.com/glfw/glfw.git
+[submodule "modules/glm"]
+	path = modules/glm
+	url = https://github.com/g-truc/glm.git
+[submodule "modules/stb"]
+	path = modules/stb
+	url = https://github.com/nothings/stb.git
