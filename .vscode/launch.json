@@ -5,9 +5,17 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/bin/${relativeFileDirname}.app",
+            "program": "${workspaceFolder}/bin/${input:project}.app",
             "args": [],
             "cwd": "${workspaceFolder}"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "project",
+            "description": "Enter the name of the program you want to run here.",
+            "default": "${relativeFileDirname}"
         }
     ]
 }
