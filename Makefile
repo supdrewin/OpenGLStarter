@@ -3,10 +3,10 @@ SHELL            = /bin/sh
 GIT_MODULE_DIR   = $(PWD)/modules
 MAKE_INCLUDE_DIR = $(PWD)/rules
 
-CMAKE_COMMAND = $(shell command -v cmake)
-GIT_COMMAND   = $(shell command -v git)
+CMAKE_COMMAND    = $(shell command -v cmake)
+GIT_COMMAND      = $(shell command -v git)
 
-JOBS          = $(shell nproc)
+JOBS             = $(shell nproc)
 
 default:
 	$(GIT_COMMAND) submodule update --remote
