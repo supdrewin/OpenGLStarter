@@ -13,7 +13,7 @@
         "-Wsign-conversion"
     ],
     "code-runner.executorMap": {
-        "cpp": "project=$dirWithoutTrailingSlash && mkdir -p $workspaceRoot/bin && clang++ -std=c++2a -stdlib=libc++ -fuse-ld=lld -flto=thin -finline-functions -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors -pipe -glldb -O2 -o $workspaceRoot/bin/${project##*/}.app $dirWithoutTrailingSlash/*.cpp -I$workspaceRoot/include -L$workspaceRoot/lib -lassimp -ldl -lfreetype -lglad -lglfw3 -lpthread -lzlibstatic"
+        "cpp": "project=$dirWithoutTrailingSlash && mkdir -p $workspaceRoot/bin && clang++ -std=c++2a -stdlib=libc++ -fuse-ld=lld -flto=thin -finline-functions -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors -pipe -glldb -O2 -o $workspaceRoot/bin/${project##*/}.app $dirWithoutTrailingSlash/*.cpp -I$workspaceRoot/include -L$workspaceRoot/lib -lassimp -ldl -lfreetype -lglad -lglfw3 -lpthread -lstb -lzlibstatic"
     },
     "editor.bracketPairColorization.enabled": true,
     "editor.formatOnPaste": true,

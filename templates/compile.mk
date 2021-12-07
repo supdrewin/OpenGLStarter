@@ -5,7 +5,7 @@ CXXFLAGS += -finline-functions
 CXXFLAGS += -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors
 CXXFLAGS +=	-pipe -glldb -O2 -o $(PREFIX)/$@
 LDFLAGS  += -fuse-ld=lld -flto=thin -L$(PREFIX)/lib
-LDFLAGS  += -lassimp -ldl -lfreetype -lglad -lglfw3 -lpthread -lzlibstatic
+LDFLAGS  += -lassimp -ldl -lfreetype -lglad -lglfw3 -lpthread -lstb -lzlibstatic
 
 bin/$(PROJECT): *.cpp
 	$(CXX) $(CXXFLAGS) $^ $(LDFLAGS)
