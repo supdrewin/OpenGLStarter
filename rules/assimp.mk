@@ -1,7 +1,7 @@
 ASSIMP_SOURCE_DIR = $(GIT_MODULE_DIR)/assimp
 ASSIMP_BUILD_DIR  = $(PWD)/build/assimp
 
-prepare/assimp:
+prepare/assimp: check/cmake
 	$(CMAKE_COMMAND) \
 		-S $(ASSIMP_SOURCE_DIR) \
 		-B $(ASSIMP_BUILD_DIR) \
@@ -23,13 +23,13 @@ install/assimp: build/assimp
 		--target install
 .PHONY: install/assimp
 
-uninstall/assimp:
+uninstall/assimp: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(ASSIMP_BUILD_DIR) \
 		--target uninstall
 .PHONY: uninstall/assimp
 
-clean/assimp:
+clean/assimp: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(ASSIMP_BUILD_DIR) \
 		--target clean

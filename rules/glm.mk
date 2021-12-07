@@ -1,7 +1,7 @@
 GLM_SOURCE_DIR = $(GIT_MODULE_DIR)/glm
 GLM_BUILD_DIR  = $(PWD)/build/glm
 
-prepare/glm:
+prepare/glm: check/cmake
 	$(CMAKE_COMMAND) \
 		-S $(GLM_SOURCE_DIR) \
 		-B $(GLM_BUILD_DIR) \
@@ -22,13 +22,13 @@ install/glm: build/glm
 		--target install
 .PHONY: install/glm
 
-uninstall/glm:
+uninstall/glm: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(GLM_BUILD_DIR) \
 		--target uninstall
 .PHONY: uninstall/glm
 
-clean/glm:
+clean/glm: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(GLM_BUILD_DIR) \
 		--target clean

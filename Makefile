@@ -8,11 +8,11 @@ GIT_COMMAND      = $(shell command -v git)
 
 JOBS             = $(shell nproc)
 
-default:
+default: check/git
 	$(GIT_COMMAND) submodule update --remote
 
-modules:
-	$(GIT_COMMAND) init -q
+modules: check/git
+	-$(GIT_COMMAND) init -q
 	-$(GIT_COMMAND) submodule add https://github.com/assimp/assimp.git modules/assimp
 	-$(GIT_COMMAND) submodule add https://github.com/freetype/freetype.git modules/freetype
 	-$(GIT_COMMAND) submodule add https://github.com/Dav1dde/glad.git modules/glad
@@ -33,3 +33,13 @@ include $(MAKE_INCLUDE_DIR)/glad.mk
 include $(MAKE_INCLUDE_DIR)/glfw.mk
 include $(MAKE_INCLUDE_DIR)/glm.mk
 include $(MAKE_INCLUDE_DIR)/stb.mk
+
+check: check/cmake check/git
+
+check/cmake:
+	@if [ "$(CMAKE_COMMAND)" = "" ]; then echo error: \`cmake\' not found! && exit 1; fi
+.PHONY: check/git
+
+check/git:
+	@if [ "$(GIT_COMMAND)" = "" ]; then echo error: \`git\' not found! &&  exit 1; fi
+.PHONY: check/git

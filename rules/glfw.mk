@@ -1,7 +1,7 @@
 GLFW_SOURCE_DIR = $(GIT_MODULE_DIR)/glfw
 GLFW_BUILD_DIR  = $(PWD)/build/glfw
 
-prepare/glfw:
+prepare/glfw: check/cmake
 	$(CMAKE_COMMAND) \
 		-S $(GLFW_SOURCE_DIR) \
 		-B $(GLFW_BUILD_DIR) \
@@ -24,13 +24,13 @@ install/glfw: build/glfw
 		--target install
 .PHONY: install/glfw
 
-uninstall/glfw:
+uninstall/glfw: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(GLFW_BUILD_DIR) \
 		--target uninstall
 .PHONY: uninstall/glfw
 
-clean/glfw:
+clean/glfw: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(GLFW_BUILD_DIR) \
 		--target clean

@@ -1,7 +1,7 @@
 FREETYPE_SOURCE_DIR = $(GIT_MODULE_DIR)/freetype
 FREETYPE_BUILD_DIR  = $(PWD)/build/freetype
 
-prepare/freetype:
+prepare/freetype: check/cmake
 	$(CMAKE_COMMAND) \
 		-S $(FREETYPE_SOURCE_DIR) \
 		-B $(FREETYPE_BUILD_DIR) \
@@ -29,7 +29,7 @@ uninstall/freetype:
 	rm -f $(PWD)/lib/libfreetype.a
 .PHONY: uninstall/freetype
 
-clean/freetype:
+clean/freetype: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(FREETYPE_BUILD_DIR) \
 		--target clean

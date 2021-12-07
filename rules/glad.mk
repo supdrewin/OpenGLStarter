@@ -1,7 +1,7 @@
 GLAD_SOURCE_DIR = $(GIT_MODULE_DIR)/glad
 GLAD_BUILD_DIR  = $(PWD)/build/glad
 
-prepare/glad:
+prepare/glad: check/cmake
 	$(CMAKE_COMMAND) \
 		-S $(GLAD_SOURCE_DIR) \
 		-B $(GLAD_BUILD_DIR) \
@@ -28,7 +28,7 @@ uninstall/glad:
 	rm -f $(PWD)/lib/libglad.a
 .PHONY: uninstall/glad
 
-clean/glad:
+clean/glad: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(GLAD_BUILD_DIR) \
 		--target clean
