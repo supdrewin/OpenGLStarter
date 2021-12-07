@@ -14,7 +14,7 @@
         {
             "type": "promptString",
             "id": "project",
-            "description": "Enter the name of the program you want to run here.",
+            "description": "Enter a program name you want to run here.",
             "default": "${relativeFileDirname}"
         }
     ]
