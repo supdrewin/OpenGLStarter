@@ -8,6 +8,11 @@ GIT_COMMAND      = $(shell command -v git)
 
 JOBS             = $(shell nproc)
 
+ifneq ($(shell command -v clang), '')
+	export CC=clang
+	export CXX=clang++
+endif
+
 default: check/git
 	$(GIT_COMMAND) submodule update --remote
 

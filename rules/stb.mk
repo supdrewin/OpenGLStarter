@@ -1,6 +1,10 @@
 STB_SOURCE_DIR = $(GIT_MODULE_DIR)/stb
 STB_BUILD_DIR  = $(PWD)/build/stb
 
+ifneq ($(shell command -v llvm-ar), '')
+AR             = llvm-ar
+endif
+
 prepare/stb:
 	mkdir -p $(STB_BUILD_DIR)
 	cat $(STB_SOURCE_DIR)/*.h |\
