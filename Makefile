@@ -43,7 +43,7 @@ check: check/cmake check/git
 
 check/cmake:
 	@if [ "$(CMAKE_COMMAND)" = "" ]; then echo error: \`cmake\' not found! && exit 1; fi
-.PHONY: check/git
+.PHONY: check/cmake
 
 check/git:
 	@if [ "$(GIT_COMMAND)" = "" ]; then echo error: \`git\' not found! &&  exit 1; fi
